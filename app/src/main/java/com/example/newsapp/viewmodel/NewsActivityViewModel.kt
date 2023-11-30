@@ -18,7 +18,11 @@ class NewsActivityViewModel @Inject constructor(val newsRepository: NewsReposito
 
     init {
         Log.d("heyyy", "init done")
-//        getBreakingNews()
+        getBreakingNews()
+    }
+
+    fun test() {
+        Log.d("hey", "yayayyayayyayayayyayayyayayayyayayayyayay")
     }
 
     private fun getBreakingNews() = viewModelScope.launch {

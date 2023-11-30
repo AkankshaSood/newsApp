@@ -14,9 +14,9 @@ data class Source(
 	val id: String? = null
 )
 
-//@Entity(tableName = "article_table")
+@Entity(tableName = "article_table")
 data class ArticlesItem(
-//	@PrimaryKey(autoGenerate = true) val id: Long?,
+	@PrimaryKey(autoGenerate = true) val id: Long?,
 	val publishedAt: String? = null,
 	val author: String? = null,
 	val urlToImage: String? = null,
