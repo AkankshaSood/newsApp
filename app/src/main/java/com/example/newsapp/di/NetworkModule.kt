@@ -15,14 +15,15 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class NetworkModule {
-    @Provides
     @Singleton
-    fun provideRetrofitInstance() = Retrofit.Builder()
+    @Provides
+    fun provideRetrofitInstance(): Retrofit = Retrofit.Builder()
         .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(OkHttpClient())
         .build()
 
     @Singleton
+    @Provides
     fun provideNewsApi(retrofit: Retrofit) = retrofit.create(NewsApi::class.java)
 }

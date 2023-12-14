@@ -1,5 +1,6 @@
 package com.example.newsapp.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,9 +24,10 @@ class NewsAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(article.url).into(findViewById(R.id.news_iv))
+            Glide.with(this).load(article.urlToImage).into(findViewById(R.id.news_iv))
             this.findViewById<TextView>(R.id.news_tv).text = article.title
-            setOnItemClickListener {
+            this.setOnClickListener {
+                Log.d("heyyyy", "here")
                 onClickListener?.let {
                     it(article)
                 }
@@ -40,13 +42,7 @@ class NewsAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val differ = AsyncListDiffer<ArticlesItem>(this, differCallback)
 
-    inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-        fun onBind() {
-
-        }
-
-    }
+    inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {}
 
     private var onClickListener: ((ArticlesItem) -> Unit)? = null
 

@@ -2,10 +2,11 @@ package com.example.newsapp.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 
 data class Response(
 	val totalResults: Int? = null,
-	val articles: List<ArticlesItem?>? = null,
+	val articles: MutableList<ArticlesItem?>? = null,
 	val status: String? = null
 )
 
@@ -24,5 +25,5 @@ data class ArticlesItem(
 	val title: String? = null,
 	val url: String? = null,
 	val content: String? = null
-)
+): Serializable
 

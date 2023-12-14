@@ -3,11 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragments.BreakingNewsFragment">
 
-    <SearchView
+    <EditText
+        android:id="@+id/search_et"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#00cbab"/>
+        android:background="#00cbab"
+
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:padding="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
